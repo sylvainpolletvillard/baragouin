@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description"
+    content="Baragouin is a JavaScript sound library to reproduce old style sound effects for virtual characters dialogs" />
+  <meta name="keywords" content="js,sound,voice,game,8bit" />
+  <meta name="author" content="Sylvain Pollet-Villard" />
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" sizes="196x196" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <title>Baragouin - Good old gibberish for your virtual characters</title>
+
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+  <link href="./docs/style.css" rel="stylesheet" />
+  <script src="https://unpkg.com/vue"></script>
+  <script type="module" defer src="./docs/main.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header :class="{ sticky: scrollPos > 50 }">
+      <div class="container">
+        <div class="nav-brand">
+          <h1>
+            <img src="./docs/favicon.png" class="brand-logo" />
+            <span>Baragouin</span>
+          </h1>
+          <p>Good old gibberish for your virtual characters</p>
+        </div>
+
+        <!--<div class="social-buttons">
+          <p>Share on</p>
+          <div class="share">
+            <a href="https://twitter.com/share?text=NES.css%EF%BD%9CNES-style%20CSS%20Framework%20%40bc_rikko&url=https://nostalgic-css.github.io/NES.css/"
+              target="_blank"><i class="nes-icon twitter"></i></a>
+            <a href="https://www.facebook.com/sharer.php?u=https://nostalgic-css.github.io/NES.css/&t=NES.css%EF%BD%9CNES-style%20CSS%20Framework"
+              target="_blank"><i class="nes-icon facebook"></i></a>
+            <a href="https://www.linkedin.com/shareArticle?url=https%3A//nostalgic-css.github.io/NES.css/&title=NES.css%EF%BD%9CNES-style%20CSS%20Framework"
+              target="_blank"><i class="nes-icon linkedin"></i></a>
+            <a href="https://github.com/nostalgic-css/NES.css" target="_blank"><i class="nes-icon github"></i></a>
+          </div>
+        </div>-->
+      </div>
+    </header>
+
+    <div class="container">
+      <main class="main-content">
+        <a class="github-link" :class="{ active:  scrollPos < 200 }"
+          href="https://github.com/sylvainpolletvillard/baragouin" target="_blank" @mouseover="animateOctocat = true"
+          @mouseout="animateOctocat = false">
+          <p class="nes-balloon from-right">View on<br />GitHub</p>
+          <i class="nes-octocat" :class="animateOctocat ? 'animate' : ''"></i>
+        </a>
+
+        <!-- About -->
+        <section>
+          <h2 id="about"><a href="#about">#</a>About</h2>
+          <p>Baragouin is a JavaScript library that will give a (unintelligible) voice to your virtual characters.</p>
+        </section>
+
+        <!-- Play -->
+        <section class="message-list">
+          <message-balloon :pitch="50" :emotion="40"
+            initial-text="Hey, want to give it a try ? Turn on your speakers, then click on me and I shall speak."
+            text="Hello you ! This is how I sound when I talk. Did you notice ? It matches the words, syllabs, and punctuation ! Do you like it ?"
+            sprite="girl.png">
+          </message-balloon>
+
+          <message-balloon position="right" :pitch="20" :emotion="20" :speed="40" :volume="20"
+            initial-text="Don't listen to her ! You should click on me !"
+            text="Meeeeh ! I prefer boy voices with a lower pitch ! Also I speak faster and louder !" sprite="boy.png">
+          </message-balloon>
+        </section>
+
+
+        <!-- Installation -->
+        <section>
+          <h2 id="installation"><a href="#installation">#</a>Installation</h2>
+          <p>Available as ES module on npm:</p>
+
+          <div class="nes-container is-dark with-title">
+            <p class="title">terminal</p>
+            <pre><code class="language-bash">&gt; npm install baragouin</code></pre>
+          </div>
+
+          <div class="nes-container is-dark with-title">
+            <p class="title">js</p>
+            <pre><code class="language-js">import baragouin from "baragouin"</code></pre>
+          </div>
+
+          <p>or as minified bundle on CDN:</p>
+
+          <div class="nes-container is-dark with-title">
+            <p class="title">html</p>
+            <pre><code class="language-html">&lt;script src="https://umd.cdn.pika.dev/baragouin/"&gt;
+&lt;script&gt;baragouin("now available as global")&lt;script&gt;</code></pre>
+          </div>
+        </section>
+
+        <!-- Usage -->
+        <section>
+          <h2 id="usage"><a href="#usage">#</a>Usage</h2>
+
+          <div class="nes-container is-dark with-title">
+            <p class="title">js</p>
+            <pre><code class="language-js">baragouin(text, options)
+
+baragouin("Hello World !", {
+  voice: "sine",
+  volume: 50,
+  speed: 30,
+  emotion: 40,
+  pitch: 25,
+  resonance: 10,
+
+  onNote(text, time){
+    // this is called at every syllab pronounced,
+    // with the text read so far. Perfect time
+    // to update the text of a message balloon
+  },
+  onEnd(text, time){
+    // this is called once at the end of the speech
+  }
+})</code></pre>
+          </div>
+
+          <div class="nes-container is-warning">
+            Note that to be allowed to make sounds, user must interact with
+            the page first (click on something)
+          </div>
+        </section>
+
+        <section class="message-list">
+          <h2 id="options"><a href="#options">#</a>Options</h2>
+
+          <option-tester param="pitch" :options="options.pitch"></option-tester>
+          <option-tester param="resonance" :options="options.resonance"></option-tester>
+          <option-tester param="emotion" :options="options.emotion"></option-tester>
+          <option-tester param="speed" :options="options.speed" sprite="kid.png"></option-tester>
+        </section>
+
+        <section>
+          <h2 id="voices"><a href="#voices">#</a>Voices</h2>
+
+          <p>Okay, pretty cool so far, but what if you want to change how the voice sounds ? This is the
+            <code>voice</code> parameter !</p>
+
+          <p>4 basic voices are included. They use the classic waveforms: sine, square, triangle and sawtooth.</p>
+
+          <option-tester param="voice" :options="options.basicVoices"
+            text="Sine, square, triangle and sawtooth... I remember having seen those in electronics class.">
+          </option-tester>
+
+          <h3>Custom voices</h3>
+
+          <p>Custom voices use custom wavetables defined in JSON files that you have to load. Just load the voices you
+            need, these files can be heavy.</p>
+
+          <div class="nes-container is-dark with-title">
+            <p class="title">js</p>
+            <pre><code class="language-js">baragouin.loadVoice("Bass")</code></pre>
+          </div>
+
+          <option-tester param="voice" :options="options.customVoices"
+            :text="baragouin.voices ? 'Do you like this voice ? This one is my favourite !' : 'Hold on, let me load all the voices...'">
+          </option-tester>
+        </section>
+
+        <test-all :options="options" />
+
+      </main>
+
+      <footer>
+        <p>
+          <a href="https://twitter.com/bc_rikko" target="_blank" rel="noopener">
+            Made with <i class="nes-icon heart"></i> by @SylvainPV</a>
+        </p>
+        <p>
+          If you like this project, give me a <i class="nes-icon star"></i> on
+          <a href="https://github.com/sylvainpolletvillard/baragouin" target="_blank">Github</a>
+        </p>
+        <p>Thank you @bc_rikko for the cool theme and avatarsinpixels.com for the chibis !</p>
+      </footer>
+
+      <!-- FAB Button -->
+      <button type="button" class="nes-btn is-error scroll-btn" :class="{ active: scrollPos > 500 }"
+        @click="window.scrollTo({ top:0, behavior: 'smooth' })"><span>&lt;</span></button>
+    </div>
+  </div>
+</body>
+
+</html>

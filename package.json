@@ -1,0 +1,25 @@
+{
+  "name": "baragouin",
+  "version": "0.1.0",
+  "description": "Good old gibberish for your virtual characters",
+  "main": "src/baragouin.js",
+  "module": "src/baragouin.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "node ./generate-voices-list.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/sylvainpolletvillard/baragouin.git"
+  },
+  "keywords": [
+    "audio",
+    "sound",
+    "voice",
+    "gamedev"
+  ],
+  "author": "Sylvain Pollet-Villard",
+  "license": "ISC"
+}
