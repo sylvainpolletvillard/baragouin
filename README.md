@@ -28,7 +28,7 @@ or as minified bundle on CDN:
 <script>baragouin("now available as global")<script>
 ```
 
-#Usage
+# Usage
 
 ```javascript
 baragouin(text, options)
