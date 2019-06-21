@@ -3,12 +3,12 @@ import { ctx } from "./note.js"
 export const voices = {}
 
 export async function loadVoicesList() {
-    return fetch('../voices/index.json')
+    return fetch('voices/index.json')
         .then(res => res.json())
 }
 
 export async function loadVoice(voice) {
-    return fetch(`../voices/${voice}.json`)
+    return fetch(`voices/${voice}.json`)
         .then(res => res.json())
         .then(tables => {
             let c = tables.real.length;
