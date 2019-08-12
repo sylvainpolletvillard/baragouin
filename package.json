@@ -4,6 +4,7 @@
   "description": "Good old gibberish for your virtual characters",
   "main": "src/baragouin.js",
   "module": "src/baragouin.js",
+  "type": "module",
   "directories": {
     "doc": "docs"
   },

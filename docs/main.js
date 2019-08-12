@@ -37,7 +37,7 @@ new Vue({
           { label: "Robot", value: 0, text: "Blip Blip. I'm a robot. I have been programmed to not show any emotion in my voice.", sprite: "robot.png" },
           { label: "Quiet", value: 30, text: "This is my peaceful voice with a normal amount of emotion and tone.", sprite: "girl.png" },
           { label: "Afraid", value: 60, text: "What is going on ? There are random variations in my voice tone and it feels like I'm scared !", sprite: "andros.png" },
-          { label: "Angry", value: 90, text: "Are you talking to me ? I said, are you talking to me !?!", sprite: "boy.png" }
+          { label: "Angry", value: 90, text: "Are you talking to me ? I said, are you talking to me ?", sprite: "boy.png" }
         ],
         speed: [
           { label: "Slow", value: 0, text: "Everything's gonna be all right! So, woman no cry. No, woman no cry." },
