@@ -1,6 +1,6 @@
 {
   "name": "baragouin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Good old gibberish for your virtual characters",
   "main": "src/baragouin.js",
   "module": "src/baragouin.js",
@@ -22,5 +22,6 @@
     "gamedev"
   ],
   "author": "Sylvain Pollet-Villard",
-  "license": "ISC"
+  "license": "ISC",
+  "types": "types/index.d.ts"
 }

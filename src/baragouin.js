@@ -22,7 +22,7 @@ export default function baragouin(text, options = {}) {
             let nbSyllabs = Math.ceil(part.length / 3);
             for (let s = 0; s < nbSyllabs; s++) {
                 t += 100 * coefSpeed;
-                if (nbSyllabs == 2) tone -= 30 * Math.min(emotion / 30, 1);
+                if (nbSyllabs === 2) tone -= 30 * Math.min(emotion / 30, 1);
                 if (nbSyllabs >= 4) tone += rand(-emotion / 4, emotion / 4);
 
                 let freq = 440 + tone + rand(-emotion, emotion);
