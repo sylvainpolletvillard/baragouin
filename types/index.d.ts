@@ -2,7 +2,11 @@
 
 export = baragouin
 
-declare function baragouin(text: string, config: baragouin.BaragouinConfig): void;
+declare function baragouin(text: string, config: baragouin.BaragouinConfig): Baragouin;
+
+declare class Baragouin {
+    stop(): void;
+}
 
 declare namespace baragouin {
     export const voices: { [voiceName: string]: PeriodicWave }
